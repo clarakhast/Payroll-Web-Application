@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <title>ABCC Payroll Application</title>
+</head>
+<body>
+    <h1>Payroll Application</h1>
+
+    <form id="form">
+        <label for="employee-number">Employee Number</label>
+        <input type="text" name="employee-number" placeholder="Enter employee number..." id="employee-number">
+
+        <label for="employee-name">Employee Name</label>
+        <input type="text" name="employee-name" placeholder="Enter fullname..." id="employee-name">
+
+        <label for="department">Department</label>
+        <select name="department" id="department">
+            <option value="select" selected disabled>Select department...</option>
+            <option value=science>Applied Sciences & Technology</option>
+            <option value="business">Business</option>
+            <option value="health">Health Sciences & Wellness</option>
+            <option value="arts">Liberal Arts & Sciences and Innovative Learning</option>
+            <option value="media">Media & Creative Arts</option>
+            <option value="social">Social & Community Services</option>
+        </select>
+
+        <label for="work-hours">Work Hours</label>
+        <input type="text" name="work-hours" id="work-hours">
+
+        <label for="">Employee Type Code</label>
+        <label for="type-code">F</label>
+        <input type="radio" name="type-code" id="faculty" value="f">
+        <label for="type-code">R</label>
+        <input type="radio" name="type-code" id="regular" value="r">
+
+        <div id="hidden" class="hidden">
+            <label>Faculty Qualification Code</label>
+            <label for="q-code">M</label>
+            <input type="radio" name="q-code" id="master" value="m">
+            <label for="q-code">B</label>
+            <input type="radio" name="q-code" id="bachelor" value="b">
+        </div>
+
+        <div id="result"></div>
+    </form>
+    <button id="calculate">Calculate</button>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
