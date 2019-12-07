@@ -1,5 +1,6 @@
 //VARIABLES
 let employeeName = document.getElementById(`employee-name`);
+let employeeDepartment = document.getElementById(`department`);
 let employeeNumber = document.getElementById(`employee-number`);
 let employeeWorkHours = document.getElementById(`work-hours`);
 let calculateButton = document.getElementById(`calculate`);
@@ -14,8 +15,12 @@ let masterDegree = document.getElementById(`master`);
 let bachelorDegree = document.getElementById(`bachelor`);
 let hourlyRate;
 let monthlyTeachingAllowance;
-let facultySalary;
-let regularSalary;
+let employeeNetPay;
+let canadianIncomeTax;
+let healthSurchargeFee;
+let employeeGrossSalary;
+let displayResults = document.getElementById(`result`);
+let employeeType;
 
 //FUNCTIONS
 function displayFacultyQualificationCode() {
@@ -46,6 +51,7 @@ function displayRegularSalary(){
 
 function calculatePayroll() {
     if(facultyEmployee.checked) {
+        employeeType = `Faculty`;
         if (bachelorDegree.checked) {
             hourlyRate = 100;
             monthlyTeachingAllowance = 600;
@@ -55,27 +61,71 @@ function calculatePayroll() {
             monthlyTeachingAllowance = 1500;
         }
     
-        facultySalary = (employeeWorkHours.value * hourlyRate) + monthlyTeachingAllowance;
+        employeeGrossSalary = (parseInt(employeeWorkHours.value) * hourlyRate) + monthlyTeachingAllowance;
+
+        if(employeeGrossSalary > 3000) {
+            healthSurchargeFee = 33;
+        }
+        else if(employeeGrossSalary <= 3000) {
+            healthSurchargeFee = 19.20;
+        }
     
-        console.log(`Faculty gross salary: $${facultySalary}`);
+        if(employeeGrossSalary <= 2500) {
+            canadianIncomeTax = 0;
+        } else {
+            canadianIncomeTax = 0.25;
+        }
+        employeeNetPay = employeeGrossSalary - (employeeGrossSalary * canadianIncomeTax) - healthSurchargeFee;
+        
+        console.log(`Faculty gross salary: $${employeeGrossSalary} Faculty net pay: $${employeeNetPay}`);
     } 
     else if(regularEmployee.checked) {
+        employeeType = `Regular`;
         if(employeeWorkHours.value == 160){
-            regularSalary = regularSalaryInput.value;
+            employeeGrossSalary = parseInt(regularSalaryInput.value);
             console.log(`exactly 160`);
         }
         else if(employeeWorkHours.value < 160) {
-            regularSalary = (regularSalaryInput.value / 160) * employeeWorkHours.value;
+            employeeGrossSalary = (parseInt(regularSalaryInput.value) / 160) * employeeWorkHours.value;
             console.log(`less than 160`);
         }
         else if(employeeWorkHours.value > 160) {
             let extraHours = (parseInt(employeeWorkHours.value) - 160) * 2;
             employeeWorkHours.value = parseInt(employeeWorkHours.value) + extraHours;
-            regularSalary = (regularSalaryInput.value / 160) * employeeWorkHours.value;
+            employeeGrossSalary = (parseInt(regularSalaryInput.value) / 160) * employeeWorkHours.value;
             console.log(`more than 160`);
         }
-        console.log(`Regular employee fixed salary:$${regularSalary}`);
+        if(employeeGrossSalary > 3000) {
+            healthSurchargeFee = 33;
+        }
+        else if(employeeGrossSalary <= 3000) {
+            healthSurchargeFee = 19.20;
+        }
+    
+        if(employeeGrossSalary <= 2500) {
+            canadianIncomeTax = 0;
+        } else {
+            canadianIncomeTax = 0.25;
+        }
+        employeeNetPay = employeeGrossSalary - (employeeGrossSalary * canadianIncomeTax) - healthSurchargeFee;
+
+        console.log(`Regular employee fixed salary:$${employeeGrossSalary} Regular net pay: $${employeeNetPay}`);
     }
+
+    displayResults.innerHTML = `
+    <h3>Employee Info:</h3>
+    <p>Employee Name: ${employeeName.value}</p>
+    <p>Employee Number: ${employeeNumber.value}</p>
+    <p>Employee Department: ${employeeDepartment.value}</p>
+    <p>Employee Type: ${employeeType}</p>
+    <p>Employee Work Hours: ${employeeWorkHours.value}</p>
+    <p>Employee Gross Salary: $${employeeGrossSalary}</p>
+    <h3>Deductions:</h3>
+    <p>Canadian Income Tax: ${canadianIncomeTax*100}%</p>
+    <p>Health Surcharge Fee : $${healthSurchargeFee}</p>
+    <h3>Net Pay</h3>
+    <p>Employee Net Pay: $${employeeNetPay}</p>
+    ` 
 }
 
 
