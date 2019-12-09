@@ -1,58 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <title>ABCC Payroll Application</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
+
 <body>
-    <h1>Payroll Application</h1>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <a href="#" class="logo">Payroll app</a>
+            </div>
 
-    <form id="form">
-        <label for="employee-number">Employee Number</label>
-        <input type="text" name="employee-number" placeholder="Enter employee number..." id="employee-number">
-
-        <label for="employee-name">Employee Name</label>
-        <input type="text" name="employee-name" placeholder="Enter fullname..." id="employee-name">
-
-        <label for="department">Department</label>
-        <select name="department" id="department">
-            <option value="select" selected disabled>Select department...</option>
-            <option value="Applied Sciences & Technology">Applied Sciences & Technology</option>
-            <option value="Business">Business</option>
-            <option value="Health Sciences & Wellness">Health Sciences & Wellness</option>
-            <option value="Liberal Arts & Sciences and Innovative Learning">Liberal Arts & Sciences and Innovative Learning</option>
-            <option value="Media & Creative Arts">Media & Creative Arts</option>
-            <option value="Social & Community Services">Social & Community Services</option>
-        </select>
-
-        <label for="work-hours">Work Hours</label>
-        <input type="text" name="work-hours" id="work-hours">
-
-        <label for="">Employee Type Code</label>
-        <label for="type-code">F</label>
-        <input type="radio" name="type-code" id="faculty" value="f">
-        <label for="type-code">R</label>
-        <input type="radio" name="type-code" id="regular" value="r">
-
-        <div id="r-hidden" class="r-hidden">
-            <label for="fixed-salary">Fixed Salary</label>
-            <input type="text" name="fixed-salary" id="r-salary" placeholder="Enter fixed salary...">
-        </div>    
-
-        <div id="hidden" class="hidden">
-            <label>Faculty Qualification Code</label>
-            <label for="q-code">M</label>
-            <input type="radio" name="q-code" id="master" value="m">
-            <label for="q-code">B</label>
-            <input type="radio" name="q-code" id="bachelor" value="b">
+            <div class="nav-menu">
+                <a href="#"><i class="fas fa-bars"></i></a>
+            </div>
+            <ul class="menu-top">
+                <li>Home</li>
+                <li>About Us</li>
+                <li>Services</li>
+                <li>Contact Us</li>
+                <li class="signup">Sign Up</li>
+            </ul>
+        </nav>
+        <div class="intro">
+            <div>
+                <img src="img/payroll.svg" alt="payroll illustration">
+            </div>
+            <div class="intro-text">
+                <h1>Why Use Payroll Application?</h1>
+                <hr>
+                <p>An easier way to calculate employees payroll. Start using Payroll Application and enjoy a fast and
+                    effective way to calculate thousands of payrolls.</p>
+                <a href="#form" class="button">Get Started</a>
+            </div>
         </div>
-    </form>
-    <button id="calculate">Calculate</button>
-    <div id="result"></div>
-    
+    </header>
+
+    <main>
+        <h2>Payroll Calculator</h2>
+        <div class="container">
+            <div class="form">
+                <form id="form">
+                    <h3>Employee Info</h3>
+                    <div>
+                        <input type="text" name="employee-number" placeholder="Employee Number..."
+                            id="employee-number">
+                    </div>
+
+                    <div>
+                        <input type="text" name="employee-name" placeholder="Employee Full Name..." id="employee-name">
+                    </div>
+
+                    <div>
+                        <select name="department" id="department">
+                            <option value="select" selected disabled>Select Department...</option>
+                            <option value="Applied Sciences & Technology">Applied Sciences & Technology</option>
+                            <option value="Business">Business</option>
+                            <option value="Health Sciences & Wellness">Health Sciences & Wellness</option>
+                            <option value="Liberal Arts & Sciences and Innovative Learning">Liberal Arts & Sciences
+                            </option>
+                            <option value="Media & Creative Arts">Media & Creative Arts</option>
+                            <option value="Social & Community Services">Social & Community Services</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <input type="text" name="work-hours" id="work-hours" placeholder="Work Hours">
+                    </div>
+
+                    <div>
+                        <label class="white block">Employee Type</label>
+                        <label for="type-code">Faculty</label>
+                        <input type="radio" name="type-code" id="faculty" value="f">
+                        <label for="type-code">Regular</label>
+                        <input type="radio" name="type-code" id="regular" value="r">
+                    </div>
+
+
+
+                    <div id="r-hidden" class="r-hidden">
+                        <input type="text" name="fixed-salary" id="r-salary" placeholder="Fixed Salary...">
+                    </div>
+
+                    <div id="hidden" class="hidden">
+                        <label class="white block">Faculty Qualification</label>
+                        <label for="q-code">Master</label>
+                        <input type="radio" name="q-code" id="master" value="m">
+                        <label for="q-code">Bachelor</label>
+                        <input type="radio" name="q-code" id="bachelor" value="b">
+                    </div>
+                </form>
+                <button id="calculate" class="button">Calculate</button>
+            </div>
+            <div class="calculator-img">
+                <img src="img/calculator.svg" alt="tax">
+            </div>
+        </div>
+
+        <div id="result"></div>
+    </main>
+
+    <footer>
+        <p>Developed with <i class="fas fa-heart"></i> By Clara Khast</p>
+    </footer>
+
     <script src="js/script.js"></script>
 </body>
+
 </html>

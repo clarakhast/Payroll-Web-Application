@@ -113,18 +113,28 @@ function calculatePayroll() {
     }
 
     displayResults.innerHTML = `
-    <h3>Employee Info:</h3>
-    <p>Employee Name: ${employeeName.value}</p>
-    <p>Employee Number: ${employeeNumber.value}</p>
-    <p>Employee Department: ${employeeDepartment.value}</p>
-    <p>Employee Type: ${employeeType}</p>
-    <p>Employee Work Hours: ${employeeWorkHours.value}</p>
-    <p>Employee Gross Salary: $${employeeGrossSalary}</p>
-    <h3>Deductions:</h3>
-    <p>Canadian Income Tax: ${canadianIncomeTax*100}%</p>
-    <p>Health Surcharge Fee : $${healthSurchargeFee}</p>
-    <h3>Net Pay</h3>
-    <p>Employee Net Pay: $${employeeNetPay}</p>
+    <div class="result">
+        <div>
+            <h3>Employee Info:</h3>
+            <p>Employee Name: <span class="black">${employeeName.value}</span></p>
+            <p>Employee Number: <span class="black">${employeeNumber.value}</span></p>
+            <p>Employee Department: <span class="black">${employeeDepartment.value}</span></p>
+            <p>Employee Type: <span class="black">${employeeType}</p>
+            <p>Employee Work Hours: <span class="black">${employeeWorkHours.value}</span></p>
+            <p>Employee Gross Salary: <span class="black">$${employeeGrossSalary}</span></p>
+        </div>
+        
+        <div>
+            <h3>Deductions:</h3>
+            <p>Canadian Income Tax: <span class="black">${canadianIncomeTax*100}%</span></p>
+            <p>Health Surcharge Fee : <span class="black">$${healthSurchargeFee}</span></p>
+        </div>
+        
+        <div>
+            <h3>Net Pay</h3>
+            <p>Employee Net Pay: <span class="black">$${employeeNetPay}</span></p>
+        </div>
+    </div>
     ` 
 }
 
