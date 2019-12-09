@@ -3,6 +3,7 @@
 *{
     margin:0;
     padding:0;
+    box-sizing: border-box;
 }
 
 body {
@@ -23,9 +24,15 @@ ul {
     list-style-type: none;
 }
 
-ul li{
+ul li a{
     display:inline-block;
     padding: 0.2rem 0.4rem;
+    text-decoration: none;
+    color:white;
+}
+
+ul li a:hover {
+    border-bottom: 1px solid white;
 }
 
 header{
@@ -139,7 +146,7 @@ form div {
     padding: 0.5rem 0;
 }
 
-.calculator-img {
+.calculator-img img {
     width: 25em;
 
 }
@@ -197,8 +204,48 @@ footer {
 
 .black {
     color: black;
+    font-weight: 400;
 }
 
 .result  {
     margin-top: 2rem;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 65em) {
+    .intro-text {
+        padding: 2rem;
+    }
+
+    .container {
+        display: block;
+        width: 30em;
+        margin: 0 auto;
+    }
+
+    .calculator-img img{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 45em) {
+    .intro {
+        display: block;
+    }
+
+    .container {
+        width: 100%;
+    }
+    .nav-menu{
+        display: block;
+        text-align: right;
+    }
+
+    .nav-menu a {
+        color: white;
+    }
+
+    .menu-top {
+        display: none;
+    }
 }
