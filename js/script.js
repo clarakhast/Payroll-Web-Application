@@ -8,9 +8,9 @@ let facultyEmployee = document.getElementById(`faculty`);
 let regularEmployee = document.getElementById(`regular`);
 let regularSalaryInput = document.getElementById(`r-salary`);
 let employeeForm =document.getElementById(`form`);
+let displayResults = document.getElementById(`result`);
 let facultyQualification = document.getElementById(`hidden`);
 let regularFixedSalary = document.getElementById(`r-hidden`);
-let payrollResult = document.getElementById(`result`);
 let masterDegree = document.getElementById(`master`);
 let bachelorDegree = document.getElementById(`bachelor`);
 let hourlyRate;
@@ -19,7 +19,6 @@ let employeeNetPay;
 let canadianIncomeTax;
 let healthSurchargeFee;
 let employeeGrossSalary;
-let displayResults = document.getElementById(`result`);
 let employeeType;
 
 //FUNCTIONS
