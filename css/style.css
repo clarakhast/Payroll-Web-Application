@@ -136,6 +136,7 @@ h2 {
     background : linear-gradient(135deg, rgba(167, 95, 78, 1) 0%, rgba(162, 91, 77, 1) 1.64%, rgba(130, 67, 74, 1) 12.6%, rgba(103, 48, 72, 1) 24.52%, rgba(83, 33, 70, 1) 37.57%, rgba(69, 22, 68, 1) 52.33%, rgba(61, 16, 67, 1) 70.24%, rgba(58, 14, 67, 1) 100%);
     padding: 2em;
     border-radius: 2em;
+    width: 80%;
 }
 
 .container {
@@ -149,7 +150,7 @@ form div {
 }
 
 .calculator-img img {
-    width: 25em;
+    width: 80%;
 
 }
 
@@ -160,7 +161,7 @@ input[type="text"], select {
       border:solid 1px #ccc;
       border-radius: 10px;
       padding: 0.3em 1em;
-      width: 20em;
+      width: 90%;
       background-color:#ccc;
 }
 
